@@ -6,17 +6,17 @@
 # The app it installs is signed with Developer ID, notarized and stapled by
 # the same workflow (ADR 0004), so Gatekeeper opens it without prompting.
 cask "boopstash" do
-  version "0.1.0"
-  sha256 "aef917e893b225259b1cfe368f2a7b9d3d5bc45bcc3894df4de6b8e07378e22d"
+  version "0.1.1"
+  sha256 "9591934972dd642aed0c16f71480c27e899c5cc9c566d79003b3fc67278e1932"
 
-  url "https://github.com/lemehmet/boopstash/releases/download/v#{version}/Boopstash-#{version}.zip"
-  name "Boopstash"
+  url "https://github.com/lemehmet/boopstash/releases/download/v#{version}/BoopStash-#{version}.zip"
+  name "BoopStash"
   desc "Scratch pad that keeps what you paste: searchable, private, on-device"
   homepage "https://github.com/lemehmet/boopstash"
 
   depends_on macos: :tahoe
 
-  app "Boopstash.app"
+  app "BoopStash.app"
 
   # The sandbox keeps everything in the app's container.
   zap trash: [
