@@ -6,8 +6,8 @@
 # The app it installs is signed with Developer ID, notarized and stapled by
 # the same workflow (ADR 0004), so Gatekeeper opens it without prompting.
 cask "boopstash" do
-  version "0.3.0"
-  sha256 "8521bc00f018c6dd337e0fc9f28817ba6e3bd31587593f19a544d772c4efccf4"
+  version "0.4.0"
+  sha256 "c621bce4cb4779dd0005bbf47b6b418ea0ae7b001fab59473f77c6b71d3f6416"
 
   url "https://github.com/lemehmet/boopstash/releases/download/v#{version}/BoopStash-#{version}.zip"
   name "BoopStash"
@@ -17,10 +17,16 @@ cask "boopstash" do
   depends_on macos: :tahoe
 
   app "BoopStash.app"
+  # The sandboxed command (ADR 0009): `some-command | boopstash`.
+  binary "#{appdir}/BoopStash.app/Contents/Helpers/boopstash"
 
-  # The sandbox keeps everything in the app's container.
+  # The sandbox keeps everything in the containers: the app's, the
+  # command's, and the App Group's, which holds the notes.
   zap trash: [
     "~/Library/Application Scripts/com.lemehmet.boopstash",
+    "~/Library/Application Scripts/com.lemehmet.boopstash.cli",
     "~/Library/Containers/com.lemehmet.boopstash",
+    "~/Library/Containers/com.lemehmet.boopstash.cli",
+    "~/Library/Group Containers/A658882T2K.com.lemehmet.boopstash",
   ]
 end
