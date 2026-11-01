@@ -6,8 +6,8 @@
 # The app it installs is signed with Developer ID, notarized and stapled by
 # the same workflow (ADR 0004), so Gatekeeper opens it without prompting.
 cask "boopstash" do
-  version "0.4.2"
-  sha256 "b4c4400b748fbf9918f494cf799cfa19a6a78fa22387ce657e6b4bbc5147074d"
+  version "0.4.3"
+  sha256 "a4b387b34cabd78395d5252328b30dd7546d949a8b6442aabe21fd9a9bf39281"
 
   url "https://github.com/lemehmet/boopstash/releases/download/v#{version}/BoopStash-#{version}.zip"
   name "BoopStash"
